@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Dev Company</title>
-    <link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
 <body>
 <header th:insert="main-header.html"></header>
@@ -24,13 +24,15 @@
                     Surname: <span th:text="${client.surname}"></span></li>
                 <li class="list-group-item">
                     Pesel: <span th:text="${client.pesel}"></span></li>
-                    <button type="button" class="btn btn-info">Info</button>
             </ul>
+            </br>
+            <a href="/list-invoices.html">
+            <button type="button" class="btn btn-info">List my invoices</button>
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+<script src="/static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
 
 </body>
 </html>

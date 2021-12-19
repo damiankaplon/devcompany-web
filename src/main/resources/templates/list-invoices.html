@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Dev Company</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<header th:insert="main-header.html"></header>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4">Invoices:</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row col-md-10 table-responsive">
+            <table id="personTable" class="table" th:if="${invoices != null && !invoices.isEmpty()}">
+                <thead>
+                <tr>
+                    <th>Invoice number</th>
+                    <th>Value</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>address</th>
+                    <th>apartment number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="invoice, rowStat: ${invoices}"
+                    th:style="${rowStat.odd} ? 'color: gray' : 'color: black;'">
+                    <td th:text="${invoice.identity}"></td>
+                    <td th:text="${invoice.saleValue}"></td>
+                    <td th:text="${invoice.building.city}"></td>
+                    <td th:text="${invoice.building.street}"></td>
+                    <td th:text="${invoice.building.address}"></td>
+                    <td th:text="${invoice.flat.get(0).flatNumber}"></td>
+                    <td>
+                        <a th:href="@{'/list/details/' + ${invoice.id}}" class="btn btn-info btn-sm">
+                            Details
+                        </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+
+</body>
+</html>
