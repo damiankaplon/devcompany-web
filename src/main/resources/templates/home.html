@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Dev Company</title>
+    <link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
 <body>
-<h1> Hello </h1>
+<header th:insert="main-header.html"></header>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4">About You!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    Name: <span th:text="${client.name}"></span></li>
+                <li class="list-group-item">
+                    Surname: <span th:text="${client.surname}"></span></li>
+                <li class="list-group-item">
+                    Pesel: <span th:text="${client.pesel}"></span></li>
+                    <button type="button" class="btn btn-info">Info</button>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+
 </body>
 </html>
