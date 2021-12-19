@@ -42,6 +42,13 @@ public class SaleService {
         return sale;
     }
 
+    public Sale getSaleById(Long id) {
+        this.prepareCriteria();
+        Sale sale = this.session.get(Sale.class, id);
+        this.session.close();
+        return sale;
+    }
+
     public List<Sale> getSalesByClient(Client client) throws NoClientsFound, NotSpecifiedReqArgs {
         if (client.getSurname().isBlank() && client.getPesel().isBlank()) throw new NotSpecifiedReqArgs();
         List<Client> clientFromDb = new ClientService(this.sessionFactory).getClientByAllArgs(client);
